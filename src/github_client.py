@@ -1,11 +1,12 @@
 # src/github_client.py
+import os
 
 import requests
 import datetime
 
 class GitHubClient:
     def __init__(self, token):
-        self.token = token
+        self.token = os.getenv(token)
         self.headers = {'Authorization': f'token {self.token}'}
 
     def fetch_updates(self, repo):
